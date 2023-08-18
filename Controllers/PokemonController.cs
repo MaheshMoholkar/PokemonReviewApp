@@ -18,7 +18,7 @@ namespace PokemonReviewApp.Controllers
             _pokemonRepository = pokemonRepository;
             _mapper = mapper;
         }
-        [HttpGet]
+        [HttpGet("Pokemons")]
         [ProducesResponseType(200, Type = typeof(IEnumerable<Pokemon>))]
         public IActionResult GetPokemons()
         {
@@ -29,7 +29,7 @@ namespace PokemonReviewApp.Controllers
             }
             return Ok(pokemons);
         }
-        [HttpGet("{pokemonId}")]
+        [HttpGet("Pokemons/{pokemonId}")]
         [ProducesResponseType(200, Type = typeof(Pokemon))]
         [ProducesResponseType(400)]
         public IActionResult GetPokemon(int pokemonId)
