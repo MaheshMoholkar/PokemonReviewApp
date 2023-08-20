@@ -26,7 +26,7 @@ namespace PokemonReviewApp.Controllers
             _pokemonRepository = pokemonRepository;
         }
 
-        [HttpGet]
+        [HttpGet("reviews")]
         [ProducesResponseType(200, Type = typeof(IEnumerable<Review>))]
         public IActionResult GetReviews()
         {
@@ -38,7 +38,7 @@ namespace PokemonReviewApp.Controllers
             return Ok(reviews);
         }
 
-        [HttpGet("{reviewId}")]
+        [HttpGet("reviews/{reviewId}")]
         [ProducesResponseType(200, Type = typeof(Review))]
         [ProducesResponseType(400)]
         public IActionResult GetPokemon(int reviewId)
@@ -54,12 +54,12 @@ namespace PokemonReviewApp.Controllers
             return Ok(review);
         }
 
-        [HttpGet("pokemon/{pokeId}")]
+        [HttpGet("reviews/pokemon/{pokemonId}")]
         [ProducesResponseType(200, Type = typeof(Review))]
         [ProducesResponseType(400)]
-        public IActionResult GetReviewsForAPokemon(int pokeId)
+        public IActionResult GetReviewsForAPokemon(int pokemonId)
         {
-            var reviews = _mapper.Map<List<ReviewDto>>(_reviewRepository.GetReviewsOfAPokemon(pokeId));
+            var reviews = _mapper.Map<List<ReviewDto>>(_reviewRepository.GetReviewsOfAPokemon(pokemonId));
 
             if (!ModelState.IsValid)
                 return BadRequest();
@@ -67,7 +67,7 @@ namespace PokemonReviewApp.Controllers
             return Ok(reviews);
         }
 
-        [HttpPost]
+        [HttpPost("reviews/createReview")]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         public IActionResult CreateReview([FromQuery] int reviewerId, [FromQuery] int pokeId, [FromBody] ReviewDto reviewCreate)
@@ -103,7 +103,7 @@ namespace PokemonReviewApp.Controllers
             return Ok("Successfully created");
         }
 
-        [HttpPut("{reviewId}")]
+        [HttpPut("reviews/{reviewId}")]
         [ProducesResponseType(400)]
         [ProducesResponseType(204)]
         [ProducesResponseType(404)]
@@ -132,7 +132,7 @@ namespace PokemonReviewApp.Controllers
             return NoContent();
         }
 
-        [HttpDelete("{reviewId}")]
+        [HttpDelete("reviews/{reviewId}")]
         [ProducesResponseType(400)]
         [ProducesResponseType(204)]
         [ProducesResponseType(404)]
@@ -157,7 +157,7 @@ namespace PokemonReviewApp.Controllers
         }
 
         // Added missing delete range of reviews by a reviewer **>CK
-        [HttpDelete("/DeleteReviewsByReviewer/{reviewerId}")]
+        [HttpDelete("reviews/{reviewerId}/reviewer")]
         [ProducesResponseType(400)]
         [ProducesResponseType(204)]
         [ProducesResponseType(404)]

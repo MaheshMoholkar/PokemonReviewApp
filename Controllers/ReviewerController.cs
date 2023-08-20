@@ -19,7 +19,7 @@ namespace PokemonReviewApp.Controllers
             _mapper = mapper;
         }
 
-        [HttpGet]
+        [HttpGet("reviewer")]
         [ProducesResponseType(200, Type = typeof(IEnumerable<Reviewer>))]
         public IActionResult GetReviewers()
         {
@@ -31,7 +31,7 @@ namespace PokemonReviewApp.Controllers
             return Ok(reviewers);
         }
 
-        [HttpGet("{reviewerId}")]
+        [HttpGet("reviewer/{reviewerId}")]
         [ProducesResponseType(200, Type = typeof(Reviewer))]
         [ProducesResponseType(400)]
         public IActionResult GetPokemon(int reviewerId)
@@ -47,7 +47,7 @@ namespace PokemonReviewApp.Controllers
             return Ok(reviewer);
         }
 
-        [HttpGet("{reviewerId}/reviews")]
+        [HttpGet("reviewer/{reviewerId}/reviews")]
         public IActionResult GetReviewsByAReviewer(int reviewerId)
         {
             if (!_reviewerRepository.ReviewerExists(reviewerId))
@@ -62,7 +62,7 @@ namespace PokemonReviewApp.Controllers
             return Ok(reviews);
         }
 
-        [HttpPost]
+        [HttpPost("reviewer/createReviewer")]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         public IActionResult CreateReviewer([FromBody] ReviewerDto reviewerCreate)
@@ -94,7 +94,7 @@ namespace PokemonReviewApp.Controllers
             return Ok("Successfully created");
         }
 
-        [HttpPut("{reviewerId}")]
+        [HttpPut("reviewer/{reviewerId}")]
         [ProducesResponseType(400)]
         [ProducesResponseType(204)]
         [ProducesResponseType(404)]
@@ -124,7 +124,7 @@ namespace PokemonReviewApp.Controllers
         }
 
 
-        [HttpDelete("{reviewerId}")]
+        [HttpDelete("reviewer/{reviewerId}")]
         [ProducesResponseType(400)]
         [ProducesResponseType(204)]
         [ProducesResponseType(404)]
