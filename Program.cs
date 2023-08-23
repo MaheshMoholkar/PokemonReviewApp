@@ -52,10 +52,11 @@ void SeedData(IHost app)
 }
 
 // Configure the HTTP request pipeline.
-app.UseSwagger();
-app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
+
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.UseCors("PermissiveCorsPolicy");
 
