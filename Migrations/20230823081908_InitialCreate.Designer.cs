@@ -12,7 +12,7 @@ using PokemonReviewApp.Data;
 namespace PokemonReviewApp.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230810165557_InitialCreate")]
+    [Migration("20230823081908_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -61,11 +61,11 @@ namespace PokemonReviewApp.Migrations
 
             modelBuilder.Entity("PokemonReviewApp.Models.Owner", b =>
                 {
-                    b.Property<int>("OwnerId")
+                    b.Property<int>("ownerId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OwnerId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ownerId"));
 
                     b.Property<int>("CountryId")
                         .HasColumnType("int");
@@ -82,7 +82,7 @@ namespace PokemonReviewApp.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("OwnerId");
+                    b.HasKey("ownerId");
 
                     b.HasIndex("CountryId");
 

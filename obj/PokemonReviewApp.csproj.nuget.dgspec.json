@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "d:\\Work\\PokemonReviewApp\\PokemonReviewApp.csproj": {}
+    "D:\\Work\\PokemonReviewApp\\PokemonReviewApp.csproj": {}
   },
   "projects": {
-    "d:\\Work\\PokemonReviewApp\\PokemonReviewApp.csproj": {
+    "D:\\Work\\PokemonReviewApp\\PokemonReviewApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "d:\\Work\\PokemonReviewApp\\PokemonReviewApp.csproj",
+        "projectUniqueName": "D:\\Work\\PokemonReviewApp\\PokemonReviewApp.csproj",
         "projectName": "PokemonReviewApp",
-        "projectPath": "d:\\Work\\PokemonReviewApp\\PokemonReviewApp.csproj",
+        "projectPath": "D:\\Work\\PokemonReviewApp\\PokemonReviewApp.csproj",
         "packagesPath": "C:\\Users\\Mahesh\\.nuget\\packages\\",
-        "outputPath": "d:\\Work\\PokemonReviewApp\\obj\\",
+        "outputPath": "D:\\Work\\PokemonReviewApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Mahesh\\AppData\\Roaming\\NuGet\\NuGet.Config",

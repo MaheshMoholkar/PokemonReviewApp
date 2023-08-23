@@ -69,7 +69,7 @@ namespace PokemonReviewApp.Migrations
                 name: "Owners",
                 columns: table => new
                 {
-                    OwnerId = table.Column<int>(type: "int", nullable: false)
+                    ownerId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -78,7 +78,7 @@ namespace PokemonReviewApp.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Owners", x => x.OwnerId);
+                    table.PrimaryKey("PK_Owners", x => x.ownerId);
                     table.ForeignKey(
                         name: "FK_Owners_Countries_CountryId",
                         column: x => x.CountryId,
@@ -154,7 +154,7 @@ namespace PokemonReviewApp.Migrations
                         name: "FK_PokemonOwners_Owners_OwnerId",
                         column: x => x.OwnerId,
                         principalTable: "Owners",
-                        principalColumn: "OwnerId",
+                        principalColumn: "ownerId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_PokemonOwners_Pokemon_PokemonId",
