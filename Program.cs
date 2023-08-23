@@ -25,6 +25,15 @@ builder.Services.AddDbContext<DataContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("AzureSQL"));
 });
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("PermissiveCorsPolicy", builder =>
+    {
+        builder.AllowAnyOrigin();
+        builder.AllowAnyHeader();
+        builder.AllowAnyMethod();
+    });
+});
 
 var app = builder.Build();
 
@@ -50,6 +59,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors("PermissiveCorsPolicy");
 
 app.UseAuthorization();
 
